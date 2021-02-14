@@ -1,5 +1,4 @@
 def dfs(graph, v, visited):
-
     # 현재 노드는 방문처리
     visited[v] = True
     print(v, end = " ")
@@ -8,7 +7,7 @@ def dfs(graph, v, visited):
     for i in graph[v]:  # 1과 연결된 2 3 8 중에서
         if not visited[i]:  # 방문안한거 있으면
             dfs(graph, i, visited)  # Depth에서 dfs 다시 시작
-                                    # ex) 2에 들어가서 2와 연결된 1,7중 방문안된 거 방문하는 재귀형태
+                                    # ex) 2에 들어가서 방문체크, 2와 연결된 1,7중 방문안된 노드를 방문하는 재귀형태
 
 graph = [       # 인접 리스트로 dfs 표현
     [],         # 0번 노드는 아무것도 연결되어 있지 않음

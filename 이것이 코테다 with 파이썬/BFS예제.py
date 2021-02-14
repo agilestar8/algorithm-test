@@ -1,7 +1,6 @@
 from collections import deque
 
 def bfs(graph, start, visited):
-    
     queue = deque([start])      # 큐 생성하고 원소는 1(start)로 시작
     visited[start] = True       # 방문 처리
 

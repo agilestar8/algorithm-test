@@ -11,7 +11,7 @@ distance = [inf] * (n+1)
 graph = [[] for i in range(n+1)]
 for _ in range(e):
     a,b,c = map(int,input().split())
-    graph[a].append((b,c))
+    graph[a].append((b,c))      # a노드에서 b노드로 가는 가중치는 c
 
 def dijkstra(start):
     # 큐 생성

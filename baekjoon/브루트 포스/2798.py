@@ -7,19 +7,14 @@
 
 # 출력
 # 첫째 줄에 M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력한다.
-
 n,m = map(int,input().split())
-card = list(map(int,input().split(' ')))
+card_num = list(map(int,input().split()))
 arr = []
-answer = 0
 
 for i in range(n-2):
     for j in range(i+1,n-1):
         for k in range(j+1,n):
-
-            if (card[i]+card[j]+card[k]) <= m:
-                answer = card[i]+card[j]+card[k]
-                arr.append(answer)
+            if (card_num[i]+card_num[j]+card_num[k]) <= m:
+                arr.append(card_num[i]+card_num[j]+card_num[k])
 
 print(max(arr))
-                
