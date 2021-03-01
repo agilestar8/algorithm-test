@@ -9,7 +9,7 @@ def dfs(graph, v, visited):
             dfs(graph, i, visited)  # Depth에서 dfs 다시 시작
                                     # ex) 2에 들어가서 방문체크, 2와 연결된 1,7중 방문안된 노드를 방문하는 재귀형태
 
-graph = [       # 인접 리스트로 dfs 표현
+graph = [       # 인접 리스트
     [],         # 0번 노드는 아무것도 연결되어 있지 않음
     [2,3,8],    # 1번 노드는 2,3,8번 노드와 연결
     [1,7],      # 2번 노드는 1,7번 노드와 연결
@@ -21,7 +21,8 @@ graph = [       # 인접 리스트로 dfs 표현
     [1,7]
 ]
 
-visited = [False]*9
+# visited = [False]*9
+#
+# dfs(graph, 1, visited)
 
-dfs(graph, 1, visited)
-
+print(graph)

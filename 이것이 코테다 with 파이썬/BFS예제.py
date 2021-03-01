@@ -13,7 +13,7 @@ def bfs(graph, start, visited):
                 queue.append(i)     # 큐에 넣고
                 visited[i] = True   # 방문 처리함 ex) 2 -> 3 -> 8 이런식
 
-graph = [  # 인접 리스트로 dfs 표현
+graph = [  # 인접 리스트
     [],          # 0번 노드는 아무것도 연결되어 있지 않음
     [2, 3, 8],   # 1번 노드는 2,3,8번 노드와 연결
     [1, 7],      # 2번 노드는 1,7번 노드와 연결
