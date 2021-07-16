@@ -10,39 +10,35 @@
 # 2 4 5
 # 3 4 6
 
-import sys
-import heapq
+import sys, heapq
 input = sys.stdin.readline
-inf = int(1e9)
+inf = 1e9
 
 n, edge = map(int,input().split())
 start_node = int(input())
-graph = [[] for i in range(n+1)]
+graph = [[] for _ in range(n+1)]
 
-for i in range(edge):
+for _ in range(edge):
     a,b,c = map(int,input().split())    
-    graph[a].append((b,c))
+    graph[a].append((b,c))  # a에서 b까지는 c걸림
 
 distance = [inf] * (n+1)
-
+distance[start_node] = 0
 
 def dijkstra(start_node):
-    queue = []
+    q = []
+    heapq.heappush(q, (0, start_node))
 
-    heapq.heappush(queue, (0, start_node))
-    distance[start_node] = 0
-
-    while queue:
-        dist, now_node = heapq.heappop(queue)
-
-        if distance[now_node] < dist:
+    while q:
+        dist, now = heapq.heappop(q)
+        if distance[now] < dist:
             continue
-        
-        for i in graph[now_node]:
-            cost = dist + i[0]
+
+        for i in graph[now]:
+            cost = i[1] + dist
             if cost < distance[i[0]]:
                 distance[i[0]] = cost
-                heapq.heappush(queue, (cost, i[0]))
+                heapq.heappush(q, (cost, i[0]))
 
 dijkstra(start_node)
 
@@ -52,3 +48,18 @@ for i in range(1, n+1):
     else:
         print(distance[i])
     
+    # heapq.heappush(queue, (0, start_node))
+    # distance[start_node] = 0
+
+    # while queue:
+    #     dist, now_node = heapq.heappop(queue)
+
+    #     if distance[now_node] < dist:
+    #         continue
+        
+    #     for i in graph[now_node]:
+    #         cost = dist + i[1]
+    #         if cost < distance[i[0]]:
+    #             distance[i[0]] = cost
+    #             heapq.heappush(queue, (cost, i[0]))
+
